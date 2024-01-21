@@ -7,11 +7,20 @@ function triple(value: string | number) {
 }
 
 const printChars = (word?: string) => {
-	if (word) {
-		for (const char of word) {
-			console.log(char);
-		}
-	} else {
-		console.log("Error char");
-	}
-} 
+  if (word) {
+    for (const char of word) {
+      console.log(char);
+    }
+  } else {
+    console.log("Error char");
+  }
+};
+
+// EQUALITY NARROWING
+function someDemo(x: string | number, y: string | boolean) {
+  if (x === y) {
+		x.toUpperCase()
+  }
+};
+
+someDemo(3, '3');
