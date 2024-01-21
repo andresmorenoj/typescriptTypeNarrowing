@@ -24,3 +24,23 @@ function someDemo(x: string | number, y: string | boolean) {
 };
 
 someDemo(3, '3');
+/* ****************** */
+
+interface IMovie {
+	title: string;
+	duration: number;
+};
+
+interface ITVShow {
+	title: string;
+	numEpisodes: number;
+	episodeDuration: number;
+};
+
+function getMedia(media: IMovie | ITVShow) {
+	if('numEpisodes' in media) {
+		return media.numEpisodes * media.episodeDuration;
+	}
+
+	return media.duration;
+}
