@@ -91,3 +91,43 @@ function makeNoise(animal: ICat | IDog): string {
 
   return "Bark";
 }
+
+/* ****************** */
+
+// Discriminated Unions
+
+interface IRooster {
+  name: string;
+  weight: number;
+  age: number;
+  kind: "Rooster";
+}
+
+interface ICow {
+  name: string;
+  weight: number;
+  age: number;
+  kind: "Cow";
+}
+
+interface IPig {
+  name: string;
+  weight: number;
+  age: number;
+  kind: "Pig";
+}
+
+type TFarmAnimal = IRooster | ICow | IPig;
+
+function getFarmAnimalSound(animal: TFarmAnimal) {
+  switch (animal.kind) {
+    case "Rooster":
+      return "Cockadooledoo!";
+    case "Cow":
+      return "Mooo!";
+    case "Pig":
+      return "Oink!";
+    default:
+      break;
+  }
+}
