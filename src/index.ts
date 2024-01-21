@@ -128,6 +128,7 @@ function getFarmAnimalSound(animal: TFarmAnimal) {
     case "Pig":
       return "Oink!";
     default:
-      break;
+      const _exahustiveCheck: never = animal;
+			return _exahustiveCheck;
   }
 }
