@@ -68,3 +68,26 @@ function printName(entity: User | Company) {
     console.log(entity.name);
   }
 }
+
+// TYPE PREDICATES
+interface ICat {
+  name: string;
+  numLives: number;
+}
+
+interface IDog {
+  name: string;
+  breed: string;
+}
+
+function isCat(animal: ICat | IDog): animal is ICat {
+  return (animal as ICat).numLives !== undefined;
+}
+
+function makeNoise(animal: ICat | IDog): string {
+  if (isCat(animal)) {
+    return "Meow";
+  }
+
+  return "Bark";
+}
